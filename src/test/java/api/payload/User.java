@@ -1,6 +1,6 @@
 package api.payload;
 
-public class user {
+public class User {
 	// POJO - Plain Old Java Object
 	
 	/* 

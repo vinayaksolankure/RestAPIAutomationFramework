@@ -1,6 +1,6 @@
 package api.endpoints;
 
-import api.payload.user;
+import api.payload.User;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.*;
 
 public class UserEndPoints {
 
-	public static Response createUser(user payload) {
+	public static Response createUser(User payload) {
 
 		Response response = given()
 				.accept(ContentType.JSON)
@@ -33,7 +33,7 @@ public class UserEndPoints {
 		return response;
 	}
 	
-	public static Response updateUser(String userName, user payload) {
+	public static Response updateUser(String userName, User payload) {
 
 		Response response = given()
 				.accept(ContentType.JSON)
