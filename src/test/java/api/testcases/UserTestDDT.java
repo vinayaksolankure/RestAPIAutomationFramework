@@ -34,6 +34,20 @@ public class UserTestDDT {
 	}
 	
 	@Test(priority = 2, dataProvider = "UserNamesData", dataProviderClass = DataProviders.class)
+	public void testGetUser(String userName) {
+		
+		Response response = UserEndPoints.getUser(userName);
+		
+		System.out.println("-----------------------------------testGetUser----------------------------------------");
+		// log Response
+		response.then().log().all();
+		
+		// Validation
+		Assert.assertEquals(response.getStatusCode(), 200, "Check for status code");
+		System.out.println("-----------------------------------------------------------------------------------------");
+	}
+	
+	@Test(priority = 3, dataProvider = "UserNamesData", dataProviderClass = DataProviders.class)
 	public void testDeleteUser(String userName) {
 		
 		Response response = UserEndPoints.deleteUser(userName);

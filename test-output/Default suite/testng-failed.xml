@@ -5,7 +5,7 @@
     <classes>
       <class name="api.testcases.UserTestDDT">
         <methods>
-          <include name="testCreateUser"/>
+          <include name="testGetUser" invocation-numbers="0 2"/>
         </methods>
       </class> <!-- api.testcases.UserTestDDT -->
     </classes>
