@@ -7,10 +7,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import com.github.javafaker.Faker;
 import api.endpoints.UserEndPoints;
+import api.endpoints.UserEndPoints2;
 import api.payload.User;
 import io.restassured.response.Response;
 
-public class UserTest {
+public class UserTest2 {
 
 	Faker faker;
 	User userPayload;
@@ -34,7 +35,7 @@ public class UserTest {
 
 	@Test(priority = 1)
 	public void testCreateUser() {
-		Response response = UserEndPoints.createUser(userPayload);
+		Response response = UserEndPoints2.createUser(userPayload);
 
 		System.out.println("-----------------------------------testCreateUser----------------------------------------");
 		// log Response
@@ -49,7 +50,7 @@ public class UserTest {
 
 	@Test(priority = 2)
 	public void testGetUserData() {
-		Response response = UserEndPoints.getUser(this.userPayload.getUsername());
+		Response response = UserEndPoints2.getUser(this.userPayload.getUsername());
 
 		System.out.println("-----------------------------------testGetUserData----------------------------------------");
 		// log Response
@@ -65,7 +66,7 @@ public class UserTest {
 	@Test(priority = 3)
 	public void testUpdateUser() {
 		userPayload.setFirstName(faker.name().firstName());
-		Response response = UserEndPoints.updateUser(this.userPayload.getUsername(), userPayload);
+		Response response = UserEndPoints2.updateUser(this.userPayload.getUsername(), userPayload);
 
 		System.out.println("-----------------------------------testUpdateUser----------------------------------------");
 		// log Response
@@ -75,7 +76,7 @@ public class UserTest {
 		Assert.assertEquals(response.getStatusCode(), 200, "Check for status code");
 
 		// Read user data to check if firstname is updated or not
-		Response responsePostUpdate = UserEndPoints.getUser(this.userPayload.getUsername());
+		Response responsePostUpdate = UserEndPoints2.getUser(this.userPayload.getUsername());
 
 		System.out.println("-------------------------------After Update User Data------------------------------------");
 		// log Response
@@ -87,7 +88,7 @@ public class UserTest {
 
 	@Test(priority = 4)
 	public void testDeleteUser() {
-		Response response = UserEndPoints.deleteUser(this.userPayload.getUsername());
+		Response response = UserEndPoints2.deleteUser(this.userPayload.getUsername());
 
 		System.out.println("-----------------------------------testDeleteUser----------------------------------------");
 		// log Response
